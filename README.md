@@ -1,11 +1,24 @@
-# cra-demo
+# Spring Boot with bundled react-app
 
-Using create-react-app with Spring Boot
+Demonstrates how to use the [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin)
+to bundle a js-webapp (react) inside an application jar.
 
-## About
+##### Build backend app
+`mvn clean install`
 
-This is a very basic sample project that illustrates a ReactJS frontend,
-generated with
-[create-react-app](https://github.com/facebookincubator/create-react-app),
-being served up by a [Spring Boot](https://projects.spring.io/spring-boot/)
-application. You could use this as a template for your own projects.
+##### Build and start frontend app separately
+```shell 
+cd src/main/webapp
+yarn build
+yarn start
+``` 
+
+##### Build backend and frontend together
+```
+mvn clean install -Pbuild-webapp
+```
+
+##### Start application
+```
+java -jar target/*.jar
+```
